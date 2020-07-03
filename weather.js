@@ -18,7 +18,7 @@ if(address==''|| address=='undefine'||address==null)
   return res.send('please enter proper address')
 }
 request(map,options,(err,response)=>{
-  let data=JSON.parse(response.body);
+  let data=JSON.parse(response.body); 
   if(err){
     return res.render('error', {
       error:err
