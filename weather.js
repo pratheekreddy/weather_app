@@ -13,7 +13,7 @@ let address=req.query.address;
 console.log(address)
 let access_key='pk.eyJ1IjoicHJhdGhlZWstMSIsImEiOiJja2J6MTBvem0wamRtMnpxYjY5OWc3MXB1In0.SehzVmKAXJRVugFLCDenCA'
 let map='https://api.mapbox.com/geocoding/v5/mapbox.places/'+ address + '.json?access_token='+access_key;
-if(address==''|| address=='undefine'||address==null)
+if(address==''|| address==undefined ||address==null)
 {
   return res.send('please enter proper address')
 }
