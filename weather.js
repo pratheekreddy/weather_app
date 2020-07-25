@@ -4,7 +4,9 @@ const app=express.Router()
 
 app.get('/current',(req,res)=>{
 
-
+let options={
+  proxy:'http://id:password@proxy'
+  }
 
 //for mapbox
 let address=req.query.address;
@@ -15,7 +17,7 @@ if(address==''|| address==undefined ||address==null)
 {
   return res.send('please enter proper address')
 }
-request(map,(err,response)=>{
+request(map,options,(err,response)=>{
   let data=JSON.parse(response.body); 
   if(err){
     return res.render('error', {
@@ -44,9 +46,10 @@ console.log(lat,lng)
  //for weatherstack 
 let url='http://api.weatherstack.com/current?access_key=5a8960e742a304e309ddbabe863d97a5&query='+lat+','+lng
 
-request(url,(err,response)=>{
+request(url,options,(err,response)=>{
   if(!err){
   let data=JSON.parse(response.body);
+  console.log(data)
   let temp=data.current.temperature
   let wind=data.current.wind_speed
   console.log(temp)

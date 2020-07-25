@@ -1,11 +1,3 @@
-const express=require('express')
-var bodyParser = require('body-parser')
+let a=[['hello','world'],['pratheek','reddy']]
 
-const app=express()
-app.use(bodyParser.json())
-
-app.get('/ab?cd',(req,res)=>{
-    console.log('hello')
-})
-
-app.listen(3000)
+console.log(a[0][0].toUpperCase())
